@@ -56,6 +56,7 @@ const loggingService = (() => {
 // Usage
 
 const main = async () => {
+  const console = loggingService;
   const subj = 'De virtutem animi';
   const text = [
     'Lucio Verissimo Fratri,',
@@ -65,7 +66,6 @@ const main = async () => {
   const message = new Message('Lucius Verus', subj, data);
   const file = new Attachment('./1-mixed.js');
   await message.attach(file);
-  const console = loggingService;
   try {
     await mailService.send(message);
   } catch (error) {
